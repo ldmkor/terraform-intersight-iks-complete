@@ -141,7 +141,7 @@ variable "secretkey" {
 variable "organization" {
   type        = string
   description = "Organization Name"
-  default     = "TFCIKS"
+  default     = "default"
 }
 
 variable "vc_password" {
