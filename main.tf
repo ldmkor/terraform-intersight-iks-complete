@@ -116,9 +116,9 @@ module "terraform-intersight-iks" {
     name                = "sbcluster"
     action              = "Deploy"
     wait_for_completion = false
-    worker_nodes        = 5
-    load_balancers      = 5
-    worker_max          = 20
+    worker_nodes        = 0
+    load_balancers      = 1
+    worker_max          = 0
     control_nodes       = 1
     ssh_user            = "iksadmin"
     ssh_public_key      = var.ssh_key
