@@ -147,9 +147,9 @@ variable "organization" {
 variable "vc_password" {
   type        = string
   description = "Secret Key or file location"
-  
+}  
 
-  variable "ssh_key" {
+variable "ssh_key" {
   type        = string
   description = "SSH Public Key to be used to node login."
 }
