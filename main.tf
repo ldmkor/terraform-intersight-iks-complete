@@ -17,7 +17,7 @@ provider "intersight" {
 
 module "terraform-intersight-iks" {
 
-  source = "terraform-cisco-modules/iks/intersight//"
+  source = "terraform-cisco-modules/iks/intersight"
 
 
   ip_pool = {
