@@ -144,6 +144,11 @@ variable "organization" {
   default     = "TFCIKS"
 }
 
+variable "vc_password" {
+  type        = string
+  description = "Secret Key or file location"
+  
+
   variable "ssh_key" {
   type        = string
   description = "SSH Public Key to be used to node login."
