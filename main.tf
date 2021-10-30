@@ -120,7 +120,7 @@ module "terraform-intersight-iks" {
     load_balancers      = 1
     worker_max          = 0
     control_nodes       = 1
-    ssh_user            = "iksadmin"
+    ssh_user            = var.ssh_user 
     ssh_public_key      = var.ssh_key
   }
   # Organization and Tag
@@ -149,6 +149,11 @@ variable "vc_password" {
   description = "Secret Key or file location"
 }  
 
+variable "ssh_user" {
+  type        = string
+  description = "SSH user name to be used to node login."
+}
+  
 variable "ssh_key" {
   type        = string
   description = "SSH Public Key to be used to node login."
