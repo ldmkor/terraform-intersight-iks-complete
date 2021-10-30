@@ -11,7 +11,7 @@ module "terraform-intersight-iks" {
 
   ip_pool = {
     use_existing        = false
-    name                = "ippool"
+    name                = "sbippool"
     ip_starting_address = "10.10.20.170"
     ip_pool_size        = "20"
     ip_netmask          = "255.255.255.0"
@@ -70,29 +70,29 @@ module "terraform-intersight-iks" {
   infra_config_policy = {
     use_existing     = false
     name             = "vcenter"
-    vc_target_name   = "marvel-vcsa.rich.ciscolabs.com"
-    vc_portgroups    = ["panther|iks|tme"]
-    vc_datastore     = "iks"
-    vc_cluster       = "tchalla"
-    vc_resource_pool = ""
+    vc_target_name   = "10.10.20.131"
+    vc_portgroups    = ["VM Network"]
+    vc_datastore     = "SpringpathDS-10.10.20.121"
+    vc_cluster       = "HyperFlex"
+    vc_resource_pool = "Test_Resource_Pool"
     vc_password      = var.vc_password
   }
 
-  addons_list = [{
-    addon_policy_name = "dashboard"
-    addon             = "kubernetes-dashboard"
-    description       = "K8s Dashboard Policy"
-    upgrade_strategy  = "AlwaysReinstall"
-    install_strategy  = "InstallOnly"
-    },
-    {
-      addon_policy_name = "monitor"
-      addon             = "ccp-monitor"
-      description       = "Grafana Policy"
-      upgrade_strategy  = "AlwaysReinstall"
-      install_strategy  = "InstallOnly"
-    }
-  ]
+#  addons_list = [{
+#    addon_policy_name = "dashboard"
+#    addon             = "kubernetes-dashboard"
+#    description       = "K8s Dashboard Policy"
+#    upgrade_strategy  = "AlwaysReinstall"
+#    install_strategy  = "InstallOnly"
+#    },
+#    {
+#      addon_policy_name = "monitor"
+#      addon             = "ccp-monitor"
+#      description       = "Grafana Policy"
+#      upgrade_strategy  = "AlwaysReinstall"
+#      install_strategy  = "InstallOnly"
+#    }
+#  ]
   instance_type = {
     use_existing = false
     name         = "small"
@@ -102,7 +102,7 @@ module "terraform-intersight-iks" {
   }
   # Cluster information
   cluster = {
-    name                = "new_cluster"
+    name                = "sbcluster"
     action              = "Unassign"
     wait_for_completion = false
     worker_nodes        = 5
