@@ -113,7 +113,7 @@ module "terraform-intersight-iks" {
   }
   # Cluster information
   cluster = {
-    name                = "democluster2"
+    name                = "democluster3"
     action              = "Deploy"
     wait_for_completion = false
     worker_nodes        = 1
