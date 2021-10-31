@@ -32,7 +32,7 @@ module "terraform-intersight-iks" {
 
   sysconfig = {
     use_existing = false
-    name         = "network"
+    name         = "NodeOS"
     domain_name  = "demo.intra"
     timezone     = "America/New_York"
     ntp_servers  = ["10.101.128.15"]
@@ -41,7 +41,7 @@ module "terraform-intersight-iks" {
 
   k8s_network = {
     use_existing = false
-    name         = "default"
+    name         = "CIDR"
 
     ######### Below are the default settings.  Change if needed. #########
     pod_cidr     = "100.65.0.0/16"
