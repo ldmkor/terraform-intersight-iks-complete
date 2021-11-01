@@ -55,7 +55,6 @@ module "terraform-intersight-iks" {
     version      = "1.19.5"
   }
 
-   tr_policy_name = "test"
    tr_policy = {
      use_existing = false
      create_new   = true
