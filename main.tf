@@ -55,15 +55,16 @@ module "terraform-intersight-iks" {
     version      = "1.19.5"
   }
 
-  # tr_policy_name = "test"
-  # tr_policy = {
-  #   use_existing = false
-  #   create_new   = true
-  #   name         = "triggermesh-trusted-registry"
-  # }
-  # runtime_policy = {
-  #   use_existing = false
-  #   create_new   = false
+   tr_policy_name = "test"
+   tr_policy = {
+     use_existing = false
+     create_new   = true
+     name         = "triggermesh-trusted-registry"
+   }
+  
+   runtime_policy = {
+     use_existing = false
+     create_new   = false
     # name                 = "runtime"
     # http_proxy_hostname  = "t"
     # http_proxy_port      = 80
@@ -75,7 +76,7 @@ module "terraform-intersight-iks" {
     # https_proxy_protocol = "https"
     # https_proxy_username = null
     # https_proxy_password = null
- # }
+  }
 
   # Infra Config Policy Information
   infra_config_policy = {
