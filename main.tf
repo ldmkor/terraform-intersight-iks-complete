@@ -57,8 +57,8 @@ module "terraform-intersight-iks" {
 
    tr_policy = {
      use_existing = false
-     create_new   = true
-     name         = "triggermesh-trusted-registry"
+     create_new   = false
+     # name         = "triggermesh-trusted-registry"
    }
   
    runtime_policy = {
