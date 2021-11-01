@@ -22,7 +22,7 @@ module "terraform-intersight-iks" {
 
   ip_pool = {
     use_existing        = false
-    name                = "demoippool"
+    name                = "ldmippool"
     ip_starting_address = "10.10.20.170"
     ip_pool_size        = "20"
     ip_netmask          = "255.255.255.0"
@@ -32,7 +32,7 @@ module "terraform-intersight-iks" {
 
   sysconfig = {
     use_existing = false
-    name         = "NodeOS"
+    name         = "ldmNodeOS"
     domain_name  = "demo.intra"
     timezone     = "America/New_York"
     ntp_servers  = ["10.101.128.15"]
@@ -41,7 +41,7 @@ module "terraform-intersight-iks" {
 
   k8s_network = {
     use_existing = false
-    name         = "CIDR"
+    name         = "ldmCIDR"
 
     ######### Below are the default settings.  Change if needed. #########
     pod_cidr     = "100.65.0.0/16"
@@ -113,7 +113,7 @@ module "terraform-intersight-iks" {
   }
   # Cluster information
   cluster = {
-    name                = "democluster"
+    name                = "ldmcluster"
     action              = "Deploy"
     wait_for_completion = false
     worker_nodes        = 1
