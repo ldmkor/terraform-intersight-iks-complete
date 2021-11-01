@@ -75,7 +75,7 @@ module "terraform-intersight-iks" {
     # https_proxy_protocol = "https"
     # https_proxy_username = null
     # https_proxy_password = null
-  }
+ # }
 
   # Infra Config Policy Information
   infra_config_policy = {
