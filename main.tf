@@ -80,7 +80,7 @@ module "terraform-intersight-iks" {
   # Infra Config Policy Information
   infra_config_policy = {
     use_existing     = false
-    name             = "ldmvcenter"
+    name             = "vcenter"
     vc_target_name   = "10.10.20.131"
     vc_portgroups    = ["VM Network"]
     vc_datastore     = "SpringpathDS-10.10.20.121"
