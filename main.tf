@@ -56,14 +56,14 @@ module "terraform-intersight-iks" {
   }
 
   # tr_policy_name = "test"
-  tr_policy = {
-    use_existing = false
-    create_new   = true
-    name         = "triggermesh-trusted-registry"
-  }
-  runtime_policy = {
-    use_existing = false
-    create_new   = false
+  # tr_policy = {
+  #   use_existing = false
+  #   create_new   = true
+  #   name         = "triggermesh-trusted-registry"
+  # }
+  # runtime_policy = {
+  #   use_existing = false
+  #   create_new   = false
     # name                 = "runtime"
     # http_proxy_hostname  = "t"
     # http_proxy_port      = 80
@@ -80,7 +80,7 @@ module "terraform-intersight-iks" {
   # Infra Config Policy Information
   infra_config_policy = {
     use_existing     = false
-    name             = "vcenter"
+    name             = "ldmvcenter"
     vc_target_name   = "10.10.20.131"
     vc_portgroups    = ["VM Network"]
     vc_datastore     = "SpringpathDS-10.10.20.121"
@@ -118,7 +118,7 @@ module "terraform-intersight-iks" {
     wait_for_completion = false
     worker_nodes        = 1
     load_balancers      = 1
-    worker_max          = 1
+    worker_max          = 3
     control_nodes       = 1
     ssh_user            = var.ssh_user 
     ssh_public_key      = var.ssh_key
