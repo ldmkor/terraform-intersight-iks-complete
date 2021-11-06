@@ -23,11 +23,11 @@ module "terraform-intersight-iks" {
   ip_pool = {
     use_existing        = false
     name                = "tfc_ippool"
-    ip_starting_address = "10.10.20.170"
+    ip_starting_address = "100.0.0.170"
     ip_pool_size        = "20"
     ip_netmask          = "255.255.255.0"
-    ip_gateway          = "10.10.20.254"
-    dns_servers         = ["10.10.20.100"]
+    ip_gateway          = "100.0.0.1"
+    dns_servers         = ["100.0.0.100"]
   }
 
   sysconfig = {
