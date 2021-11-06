@@ -22,7 +22,7 @@ module "terraform-intersight-iks" {
 
   ip_pool = {
     use_existing        = false
-    name                = "ldmippool"
+    name                = "tfc_ippool"
     ip_starting_address = "10.10.20.170"
     ip_pool_size        = "20"
     ip_netmask          = "255.255.255.0"
@@ -32,20 +32,20 @@ module "terraform-intersight-iks" {
 
   sysconfig = {
     use_existing = false
-    name         = "ldmNodeOS"
-    domain_name  = "demo.intra"
+    name         = "tfc_Node_OS"
+    domain_name  = "ldmkor.local"
     timezone     = "America/New_York"
-    ntp_servers  = ["10.101.128.15"]
-    dns_servers  = ["10.101.128.15"]
+    ntp_servers  = ["100.0.0.100"]
+    dns_servers  = ["100.0.0.100"]
   }
 
   k8s_network = {
     use_existing = false
-    name         = "ldmCIDR"
+    name         = "tfc-CIDR"
 
     ######### Below are the default settings.  Change if needed. #########
-    pod_cidr     = "100.65.0.0/16"
-    service_cidr = "100.64.0.0/24"
+    pod_cidr     = "100.67.0.0/16"
+    service_cidr = "100.66.0.0/24"
     cni          = "Calico"
   }
   # Version policy
@@ -80,12 +80,12 @@ module "terraform-intersight-iks" {
   # Infra Config Policy Information
   infra_config_policy = {
     use_existing     = false
-    name             = "vcenter"
-    vc_target_name   = "10.10.20.131"
+    name             = "tfc-vcenter"
+    vc_target_name   = "100.0.0.101"
     vc_portgroups    = ["VM Network"]
-    vc_datastore     = "SpringpathDS-10.10.20.121"
-    vc_cluster       = "HyperFlex"
-    vc_resource_pool = "Test_Resource_Pool"
+    vc_datastore     = "datastore2"
+    vc_cluster       = "ldmkorCluster"
+    vc_resource_pool = ""
     vc_password      = var.vc_password
   }
 
@@ -106,19 +106,19 @@ module "terraform-intersight-iks" {
 #  ]
   instance_type = {
     use_existing = false
-    name         = "small"
+    name         = "tfc-small"
     cpu          = 4
-    memory       = 16386
+    memory       = 8192
     disk_size    = 40
   }
   # Cluster information
   cluster = {
-    name                = "ldmcluster"
+    name                = "tfc-iks-cluster"
     action              = "Deploy"
     wait_for_completion = false
     worker_nodes        = 1
     load_balancers      = 1
-    worker_max          = 3
+    worker_max          = 1
     control_nodes       = 1
     ssh_user            = var.ssh_user 
     ssh_public_key      = var.ssh_key
